@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Scene</title>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+
+body, html {
+	background: #41295a;
+	background: -webkit-linear-gradient(to right, #2F0743, #41295a);
+	background: linear-gradient(to right, #2F0743, #41295a);
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	color: rgba(241, 196, 15, 0.7);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f1c40f;
+}
+
+#nav {
+	font-size: 1.5em;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 30px;
+}
+
+.brand a {
+	color: #f1c40f;
+	font-family: 'Arial Rounded MT Bold', 'Open Sans', sans-serif;
+	letter-spacing: -2px;
+}
+
+#nav .right {
+	float: right;
+	font-size: .6em;
+}
+
+#nav .right a {
+	color: white;
+	padding-left: 25px;
+}
+
+.content {
+	color: white;
+	margin: 30px auto;
+	width: 90vw;
+}
+
+.block {
+	background: rgba(0,0,0,0.1);
+	border: 1px solid rgba(241, 196, 15, 0.5);
+	border-radius: 10px;
+	font-size: 1.5em;
+	padding: 10px;
+}
+
+.search-input {
+	background: transparent;
+	border: none;
+	color: white;
+	font-size: .9em;
+	width: 80%;
+}
+
+.search-input::placeholder {
+	color: rgba(255,255,255,0.4);
+}
+
+.search-input:focus {
+	outline: none;
+}
+
+.add-input {
+	background: white;
+	border: none;
+	border-radius: 15px;
+	font-size: 1.5em;
+	padding: 20px;
+}
+
+label {
+	font-size: 1.5em;
+}
+
+.star-cb-group {
+  	font-size: 0;
+  	unicode-bidi: bidi-override;
+  	direction: rtl;
+} .star-cb-group * {
+  	font-size: 2.3rem;
+} .star-cb-group > input {
+  	display: none;
+} .star-cb-group > input + label {
+	display: inline-block;
+  	overflow: hidden;
+  	text-indent: 9999px;
+  	width: 1em;
+  	white-space: nowrap;
+  	cursor: pointer;
+} .star-cb-group > input + label:before {
+  	display: inline-block;
+  	text-indent: -9999px;
+  	content: "☆";
+} .star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
+  	content: "★";
+  	text-shadow: 0 0 1px #333;
+} .star-cb-group > .star-cb-clear + label {
+  	text-indent: -9999px;
+  	width: .5em;
+  	margin-left: -.5em;
+} .star-cb-group > .star-cb-clear + label:before {
+  	width: .5em;
+} .star-cb-group:hover > input + label:before {
+  	content: "☆";
+  	text-shadow: none;
+} .star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
+  	content: "★";
+  	text-shadow: 0 0 1px #333;
+}
+
+fieldset {
+  	border: 0;
+  	margin-left: -10px;
+  	margin-top:-5px;
+}
+
+.card-button {
+	background: rgba(0,0,0,0.1);
+	border: 1px solid rgba(241, 196, 15, 0.5);
+	border-radius: 10px;
+	color: white;
+	font-size: 2em;
+	font-weight: 300;
+	margin: 40px 10px 100px 0;
+	width: 100%;
+}
+
+.card-button:hover {
+	background: rgba(0,0,0,0.2);
+}
+
+.rating-main {
+  	unicode-bidi: bidi-override;
+  	direction: rtl;
+}
+.rating-main span {
+  	display: inline-block;
+  	position: relative;
+  	width: 1.1em;
+}
+.rating-main span:hover:before,
+.rating-main span:hover ~ span:before {
+   	content: "\2605";
+	color: #f1c40f;
+   	position: absolute;
+}
+
+h2 {
+	font-weight: 300;
+}
+
+.round {
+	font-family: 'Arial Rounded MT Bold', 'Open Sans', sans-serif;
+}
+
+.yellow {
+	color: #f1c40f;
+}
+
+p {
+	font-size: 1.1em;
+	font-weight: 400;
+	line-height: 1.6;
+	max-width: 60vw;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="nav">
+	<span class="brand"><a href="{% url 'home_page' %}">scene movies</a></span>
+	<span class="right">
+		<a href="{% url 'home_page' %}">Home</a>
+		<a href="{% url 'about_page' %}">About</a>
+	</span>
+</div>
+
+<div class="content">
+
+	<div style="display: -webkit-flex;flex-direction: row;">
+
+		<a href="{% url 'add_movie_page' %}">
+		<div class="block" style="flex-grow: 1;margin-right: 20px;">
+			<span class="yellow">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+			</span>Add
+		</div>
+		</a>
+
+		<div class="block" style="flex-grow: 2; margin-right: 20px;">
+			<form action="{% url 'search' %}" method="post">
+			{% csrf_token %}
+			<span class="yellow">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</span> &nbsp; <input type="text" name="term" class="search-input" placeholder="Search..." />
+			<button type="submit" name="submit" style="visibility: hidden;"></button>
+			</form>
+		</div>
+
+		<div class="block rating-main">
+			<a href="{% url 'movies_by_rating' rating=5 %}" class="yellow"><span>&star;</span></a>
+			<a href="{% url 'movies_by_rating' rating=4 %}" class="yellow"><span>&star;</span></a>
+			<a href="{% url 'movies_by_rating' rating=3 %}" class="yellow"><span>&star;</span></a>
+			<a href="{% url 'movies_by_rating' rating=2 %}" class="yellow"><span>&star;</span></a>
+			<a href="{% url 'movies_by_rating' rating=1 %}" class="yellow"><span>&star;</span></a>
+		</div>
+	</div>
+
+	{% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

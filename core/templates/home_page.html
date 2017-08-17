@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<br />
+<h2>Recently rated...</h2>
+<div style="display: flex;flex-wrap: wrap;">
+
+{% for movie in movies %}
+<div class="block yellow" style="display: inline-block;text-align: center; margin-right: 20px;margin-bottom: 20px;">
+	<img src="{{ movie.image }}" /><br />
+	{% if movie.rating == 1 %}
+		&starf; &star; &star; &star; &star;
+	{% elif movie.rating == 2 %}
+		&starf; &starf; &star; &star; &star;
+	{% elif movie.rating == 3 %}
+		&starf; &starf; &starf; &star; &star;
+	{% elif movie.rating == 4 %}
+		&starf; &starf; &starf; &starf; &star;
+	{% elif movie.rating == 5 %}
+		&starf; &starf; &starf; &starf; &starf;
+	{% endif %}
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}
